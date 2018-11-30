@@ -1,0 +1,21 @@
+{
+  "name": "pokemdServer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "serve": "nodemon watch index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "directory-tree": "^2.1.1",
+    "express": "^4.16.4",
+    "fast-glob": "^2.2.4",
+    "fs-extra": "^7.0.1",
+    "markdown-it": "^8.4.2",
+    "nodemon": "^1.18.7",
+    "walk": "^2.3.14"
+  }
+}
