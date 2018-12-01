@@ -1,0 +1,12 @@
+---
+  -
+    name: Combat
+    subcategories: 
+      - Action Points
+      - Combat
+      - Shift Actions
+
+  -
+    name: Life
+    subcategories:
+      - Resting

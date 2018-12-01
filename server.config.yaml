@@ -1,0 +1,4 @@
+  port: 3000
+  folder: ./files
+  dirFolder: static
+  dirFile: directory.yaml
