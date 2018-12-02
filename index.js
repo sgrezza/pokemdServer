@@ -1,3 +1,4 @@
+require('dotenv').config();
 const fs = require('fs-extra');
 const path = require('path');
 const express = require('express');
@@ -7,7 +8,8 @@ const yaml = require('js-yaml');
 const dirTree = require('directory-tree');
 
 const CONFIG = yaml.safeLoad(fs.readFileSync('./server.config.yaml'));
-
+const IS_PROD = process.env.node_env === 'production' ? true : false;
+const DIR_FILE = yaml.safeLoad(fs.readFileSync(`./${CONFIG.dirFolder}/${CONFIG.dirFile}`));
 
 let app = express();
 let directory = {}; // Looks like { "fileName" : "path/to/fileName.md" }
@@ -18,7 +20,6 @@ let fileTree = dirTree('./files');
 // });
 // let previousDir = fs.readJSONSync(`./${CONFIG.dirFolder}/${CONFIG.dirFile}`);
 // fs.writeJSONSync(`./${CONFIG.dirFolder}/${CONFIG.dirFile}`, fileTree);
-
 
 app.use(function(req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
@@ -41,9 +42,10 @@ app.get('/:subcategory', (req, res) => {
     });
 });
 
-const dirFile = yaml.safeLoad(fs.readFileSync(`./${CONFIG.dirFolder}/${CONFIG.dirFile}`));
 app.get('/', (req, res) => {
-  // Make this send 'dirFile' for better performance
+    if (IS_PROD) {
+        return res.send(DIR_FILE);
+    }
     res.send(yaml.safeLoad(fs.readFileSync(`./${CONFIG.dirFolder}/${CONFIG.dirFile}`, 'utf-8')));
 });
 
@@ -57,4 +59,3 @@ glob([`./${CONFIG.folder}/*.md`, `./${CONFIG.folder}/**/*.md`]).then(mdFilePaths
         return console.log(`Listening on ${CONFIG.port}`);
     });
 });
-
