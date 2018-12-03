@@ -6,12 +6,13 @@ const markdown = require('markdown-it')('commonmark');
 const glob = require('fast-glob');
 const yaml = require('js-yaml');
 const dirTree = require('directory-tree');
-
+const helmet = require('helmet')
 const CONFIG = yaml.safeLoad(fs.readFileSync('./server.config.yaml'));
 const IS_PROD = process.env.node_env === 'production' ? true : false;
 const DIR_FILE = yaml.safeLoad(fs.readFileSync(`./${CONFIG.dirFolder}/${CONFIG.dirFile}`));
 
 let app = express();
+app.use(helmet());
 let directory = {}; // Looks like { "fileName" : "path/to/fileName.md" }
 let fileTree = dirTree('./files');
 
