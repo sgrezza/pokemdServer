@@ -1,0 +1,1 @@
+# Welcome to the Pokemon TableTop MiniWiki

@@ -1,4 +1,2 @@
-  port: 3001
-  folder: ./files
-  dirFolder: static
-  dirFile: directory.yaml
+  src: ./files
+  directoryPath: ./directory.json

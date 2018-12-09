@@ -29,6 +29,7 @@ speed-measure-plugin.json
 
 # misc
 .env
+./.env
 /.sass-cache
 /connect.lock
 /coverage

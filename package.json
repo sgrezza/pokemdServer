@@ -4,12 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve": "nodemon watch index.js"
+    "serve": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "deep-equal": "^1.0.1",
     "directory-tree": "^2.1.1",
     "dotenv": "^6.1.0",
     "express": "^4.16.4",
