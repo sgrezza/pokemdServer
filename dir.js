@@ -39,7 +39,7 @@ let writeDirectoryFile = async (categoryData) => {
     if (deepEqual(oldDirFile, categoryData)) { // No new or deleted files...
         return; // Old directory file is fine. Don't do anything
     }
-    return fs.outputJSON('./directory.js', categoryData)
+    return fs.outputJSON('./directory.json', categoryData)
 }
 
 module.exports = {

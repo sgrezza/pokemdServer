@@ -7,7 +7,7 @@ const glob = require('fast-glob');
 const yaml = require('js-yaml');
 const dirTree = require('directory-tree');
 const helmet = require('helmet');
-const getCategories = require('./directory.js').getCategories;
+const getCategories = require('./dir.js').getCategories;
 
 const CONFIG = yaml.safeLoad(fs.readFileSync('./server.config.yaml'));
 const IS_PROD = process.env.node_env === 'production' ? true : false;
